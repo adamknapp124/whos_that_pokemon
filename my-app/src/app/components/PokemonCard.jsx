@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { capitalizeFirstLetter } from '../utils/capitalize';
+import { capitalize } from '../utils/capitalize';
 
 export default function PokemonCard({ poke }) {
 	const router = useRouter();
@@ -9,7 +9,7 @@ export default function PokemonCard({ poke }) {
 	return (
 		<button onClick={() => router.push(`/pokemon/${poke.name}`)}>
 			<img src={poke.url} alt='pokemon' />
-			<p>{capitalizeFirstLetter(poke.name)}</p>
+			<p>{capitalize(poke.name)}</p>
 		</button>
 	);
 }

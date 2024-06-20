@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-export default function Button({ href, selectedPokemon, onClick }) {
+export default function Button({ href, text, selectedPokemon, onClick }) {
 	const handleClick = (event) => {
 		if (onClick) {
 			event.preventDefault();
-			onClick(selectedPokemon);
+			onClick();
 		} else if (href) {
 			window.location.href = href;
 		}
@@ -14,7 +14,7 @@ export default function Button({ href, selectedPokemon, onClick }) {
 
 	return (
 		<a href={href || '#'} onClick={handleClick}>
-			{href ? 'Back' : 'Upload'}
+			{href ? 'Back' : text}
 		</a>
 	);
 }
