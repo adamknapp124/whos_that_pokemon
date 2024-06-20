@@ -44,8 +44,16 @@ h6 {
 }
 
 section {
-	max-width: 1200px;
 	margin: auto;
-	overflow-y: auto;
-	height: 100vh;
+	max-width: 1200px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	padding: 0;
+}
+
+button {
+	cursor: pointer;
+	height: 150px;
+	display: grid;
+	justify-content: center;
 }
