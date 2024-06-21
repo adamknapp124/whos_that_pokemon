@@ -1,12 +1,14 @@
 import PokemonGrid from './components/PokemonGrid';
-import { getPoke } from './api/Pokemons/route';
+import { getPokemonData } from './api/Pokemons/route';
+import { getCapturedPokemon } from './api/actions/getCapturedPokemon';
 
 export default async function Home() {
-	const pokemon = await getPoke();
+	const pokemonData = await getPokemonData();
+	const capturedMons = await getCapturedPokemon();
 
 	return (
 		<main className='main'>
-			<PokemonGrid pokemon={pokemon} />
+			<PokemonGrid pokemon={pokemonData} captured={capturedMons} />
 		</main>
 	);
 }
