@@ -1,6 +1,7 @@
 import connection from '../db';
 
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 
 export async function DELETE(req) {
 	try {
@@ -11,6 +12,7 @@ export async function DELETE(req) {
 			[pokemon_id]
 		);
 
+		revalidatePath('/');
 		return NextResponse.json({ success: true, data: rows });
 	} catch (error) {
 		return NextResponse.json({ error: error.message }, { status: 500 });
