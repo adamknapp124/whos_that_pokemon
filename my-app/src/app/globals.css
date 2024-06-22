@@ -14,6 +14,7 @@
 body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
+	padding: 60px 0 60px 0;
 }
 img,
 picture,
@@ -43,13 +44,36 @@ h6 {
 	isolation: isolate;
 }
 
-section {
-	margin: auto;
-	max-width: 1200px;
-	display: grid;
-	gap: 5px;
-	grid-template-columns: repeat(5, 1fr);
-	padding: 0;
+@media (width >= 1000px) {
+	section {
+		grid-template-columns: repeat(5, 1fr);
+		max-width: 1200px;
+		display: grid;
+		gap: 5px;
+		padding: 0;
+		margin: auto;
+	}
+}
+@media (width < 1000px) {
+	section {
+		margin: auto;
+		grid-template-columns: repeat(4, 1fr);
+		max-width: 1200px;
+		display: grid;
+		gap: 5px;
+		padding: 0;
+	}
+}
+@media (width < 600px) {
+	section {
+		margin: auto;
+		grid-template-columns: repeat(2, 1fr);
+		min-width: 390px;
+		max-width: 1200px;
+		display: grid;
+		gap: 5px;
+		padding: 0;
+	}
 }
 
 button {
@@ -57,4 +81,17 @@ button {
 	height: 150px;
 	display: grid;
 	justify-content: center;
+}
+
+#card {
+	position: relative;
+	display: grid;
+	text-align: center;
+	font-weight: 600;
+	cursor: pointer;
+	color: black;
+	justify-content: center;
+	border: 1px solid #eaeaea;
+	border-radius: 10px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }

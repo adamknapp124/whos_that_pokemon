@@ -12,7 +12,7 @@ export async function DELETE(req) {
 			[pokemon_id]
 		);
 
-		revalidatePath('/');
+		revalidatePath('/pokedex');
 		return NextResponse.json({ success: true, data: rows });
 	} catch (error) {
 		return NextResponse.json({ error: error.message }, { status: 500 });

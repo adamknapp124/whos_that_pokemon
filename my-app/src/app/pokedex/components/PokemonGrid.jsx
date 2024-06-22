@@ -1,8 +1,7 @@
 import PokemonCard from './PokemonCard';
 
 const PokemonGrid = async ({ pokemon, captured }) => {
-	const capturedPokemonNames = new Set(captured.map((mon) => mon.name));
-	const capturedNames = [...capturedPokemonNames];
+	const capturedPokemonNames = new Map(captured.map((mon) => [mon.name, mon.type]));
 	return (
 		<section>
 			{pokemon.map((poke, index) => (
@@ -10,7 +9,7 @@ const PokemonGrid = async ({ pokemon, captured }) => {
 					poke={poke}
 					key={index}
 					isCaptured={capturedPokemonNames.has(poke.name)}
-					captured={capturedNames}
+					type={capturedPokemonNames.get(poke.name)}
 				/>
 			))}
 		</section>

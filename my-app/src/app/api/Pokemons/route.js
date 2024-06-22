@@ -28,18 +28,3 @@ export async function getPokeLocation(id) {
 		return data;
 	}
 }
-
-export async function getPokemonData() {
-	console.log('starting function');
-	const pokemon = await getPoke();
-	const pokemonDetailsPromises = pokemon.map(async (poke) => {
-		const pokemonDataPromise = getPokeData(poke.name);
-		return {
-			...poke,
-			types: (await pokemonDataPromise).types.map((type) => type.type.name),
-		};
-	});
-	const pokemonDetails = await Promise.all(pokemonDetailsPromises);
-	console.log('function complete');
-	return pokemonDetails;
-}

@@ -1,13 +1,16 @@
 'use client';
 
-import { capitalize } from '../utils/capitalize';
+import { capitalize } from '@/app/utils/capitalize';
 
 import React from 'react';
 import Button from '@/app/components/Button';
 
-export default function PokemonInfoClient({ location, data, selectedPokemon }) {
+import styles from '../styles/PokemonCard.module.css';
+
+export default function PokemonInfoClient({ location, data }) {
 	const region = location.pokedex_numbers[1].pokedex.name;
 	const types = data.types.map((type) => type.type.name);
+	console.log(types[0]);
 	const statsArray = data.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`);
 
 	const handleUpload = async () => {
@@ -62,13 +65,15 @@ export default function PokemonInfoClient({ location, data, selectedPokemon }) {
 	return (
 		<main>
 			<div>
-				<img
-					src={data.sprites.other['official-artwork'].front_default}
-					alt={data.name}
-				/>
-				<h1>{capitalize(data.name)}</h1>
+				<div className={styles[types[0]]}>
+					<img
+						src={data.sprites.other['official-artwork'].front_default}
+						alt={data.name}
+					/>
+					<h1>{capitalize(data.name)}</h1>
+				</div>
 			</div>
-			<Button href='/' />
+			<Button href='/pokedex' />
 			<div>Pokedex entry: {data.id}</div>
 			<div>
 				<div>Types:</div>

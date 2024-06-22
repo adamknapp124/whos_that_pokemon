@@ -1,0 +1,25 @@
+.nav {
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	overflow: hidden;
+	display: inline-block;
+	z-index: 100;
+}
+
+.container {
+	margin: auto;
+	max-width: 1200px;
+	display: flex;
+	list-style: none;
+	justify-content: space-around;
+	align-items: center;
+	padding: 1rem 2rem;
+	color: #fff;
+}
+
+.link {
+	color: #fff;
+	text-decoration: none;
+}
