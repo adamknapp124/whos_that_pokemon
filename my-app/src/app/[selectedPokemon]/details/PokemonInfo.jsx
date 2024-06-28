@@ -5,12 +5,11 @@ import { capitalize } from '@/app/utils/capitalize';
 import React from 'react';
 import Button from '@/app/components/Button';
 
-import styles from '../styles/PokemonCard.module.css';
+import styles from '@/app/pokedex/styles/PokemonCard.module.css';
 
 export default function PokemonInfoClient({ location, data }) {
 	const region = location.pokedex_numbers[1].pokedex.name;
 	const types = data.types.map((type) => type.type.name);
-	console.log(types[0]);
 	const statsArray = data.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`);
 
 	const handleUpload = async () => {

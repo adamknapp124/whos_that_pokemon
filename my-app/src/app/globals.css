@@ -15,6 +15,9 @@ body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	padding: 60px 0 60px 0;
+	border: 12px solid rgb(0, 0, 0);
+	height: 100vh;
+	overflow: hidden;
 }
 img,
 picture,
@@ -47,15 +50,29 @@ h6 {
 @media (width >= 1000px) {
 	section {
 		grid-template-columns: repeat(5, 1fr);
+		overflow-y: auto;
 		max-width: 1200px;
+		height: 770px; /* Adjust height to fit within the body */
 		display: grid;
 		gap: 5px;
 		padding: 0;
 		margin: auto;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+		padding: 10px;
+		border-radius: 10px;
+	}
+	section::-webkit-scrollbar {
+		display: none;
 	}
 }
 @media (width < 1000px) {
 	section {
+		height: calc(100vh - 120px);
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+		overflow-y: auto;
 		margin: auto;
 		grid-template-columns: repeat(4, 1fr);
 		max-width: 1200px;
@@ -66,6 +83,10 @@ h6 {
 }
 @media (width < 600px) {
 	section {
+		height: calc(100vh - 120px);
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+		overflow-y: auto;
 		margin: auto;
 		grid-template-columns: repeat(2, 1fr);
 		min-width: 390px;

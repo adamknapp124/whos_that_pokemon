@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"paths": {
 			"@/*": ["./src/*"],
-			"@/*.jsx": ["./src/*.jsx"]
+			"@/*.jsx": ["./src/app/pokedex/components/*.jsx"]
 		}
 	}
 }

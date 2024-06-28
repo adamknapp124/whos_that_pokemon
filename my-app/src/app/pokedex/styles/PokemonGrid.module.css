@@ -1,0 +1,23 @@
+.main {
+	display: flex;
+	justify-content: center;
+}
+
+.previewOne {
+	border: 2px solid black;
+	display: flex;
+	width: 25%;
+	flex-direction: column;
+}
+.previewTwo {
+	border: 2px solid black;
+	flex-direction: column;
+	display: flex;
+	width: 25%;
+}
+
+.center {
+	border: 2px solid black;
+	flex-direction: column;
+	width: 100%;
+}
