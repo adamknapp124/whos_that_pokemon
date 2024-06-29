@@ -3,38 +3,40 @@
 import { useState, useEffect } from 'react';
 import PokemonCard from './PokemonCard';
 import { getPokeData } from '@/app/api/Pokemons/route';
+import { capitalize } from '@/app/utils/capitalize';
 
 import styles from '../styles/PokemonGrid.module.css';
 import DropBox from './DropBox';
+import StatsGraph from './StatsGraph';
 
-const PokemonGrid = ({ pokemon, captured, onDropPokemon }) => {
+const PokemonGrid = ({ pokemon, captured }) => {
 	const [droppedPokeName1, setDroppedPokeName1] = useState('');
 	const [droppedPokeName2, setDroppedPokeName2] = useState('');
 	const [droppedPokemon1, setDroppedPokemon1] = useState(null);
 	const [droppedPokemon2, setDroppedPokemon2] = useState(null);
 	const [stats1, setStats1] = useState({
-		hp: 0,
-		attack: 0,
-		defense: 0,
-		specialAttack: 0,
-		specialDefense: 0,
-		speed: 0,
+		hp: null,
+		attack: null,
+		defense: null,
+		specialAttack: null,
+		specialDefense: null,
+		speed: null,
 	});
 	const [stats2, setStats2] = useState({
-		hp: 0,
-		attack: 0,
-		defense: 0,
-		specialAttack: 0,
-		specialDefense: 0,
-		speed: 0,
+		hp: null,
+		attack: null,
+		defense: null,
+		specialAttack: null,
+		specialDefense: null,
+		speed: null,
 	});
 	const [barLengths, setBarLengths] = useState({
-		hp: { p1: 0, p2: 0 },
-		attack: { p1: 0, p2: 0 },
-		defense: { p1: 0, p2: 0 },
-		specialAttack: { p1: 0, p2: 0 },
-		specialDefense: { p1: 0, p2: 0 },
-		speed: { p1: 0, p2: 0 },
+		hp: { p1: null, p2: null },
+		attack: { p1: null, p2: null },
+		defense: { p1: null, p2: null },
+		specialAttack: { p1: null, p2: null },
+		specialDefense: { p1: null, p2: null },
+		speed: { p1: null, p2: null },
 	});
 
 	const handleDrop1 = async (pokeName) => {
@@ -139,24 +141,6 @@ const PokemonGrid = ({ pokemon, captured, onDropPokemon }) => {
 
 	return (
 		<main className={styles.main}>
-			<div>
-				{Object.keys(barLengths).map((stat) => (
-					<div className={styles.compareBox} key={stat}>
-						<div
-							id={`${stat}-bar-1`}
-							style={{ width: `${barLengths[stat].p1}%` }}
-							className={styles.statBar1}>
-							{stats1[stat]}
-						</div>
-						<div
-							id={`${stat}-bar-2`}
-							style={{ width: `${barLengths[stat].p2}%` }}
-							className={styles.statBar2}>
-							{stats2[stat]}
-						</div>
-					</div>
-				))}
-			</div>
 			<div className={styles.pokeBox}>
 				<DropBox
 					pokeName={droppedPokeName1}
@@ -182,6 +166,13 @@ const PokemonGrid = ({ pokemon, captured, onDropPokemon }) => {
 					droppedPokemon={droppedPokemon2}
 				/>
 			</div>
+			<StatsGraph
+				droppedPokemon1={droppedPokemon1}
+				droppedPokemon2={droppedPokemon2}
+				barLengths={barLengths}
+				stats1={stats1}
+				stats2={stats2}
+			/>
 		</main>
 	);
 };

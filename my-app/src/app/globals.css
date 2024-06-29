@@ -47,6 +47,7 @@ h6 {
 	isolation: isolate;
 }
 
+/* refactor sections to play nice with others */
 @media (width >= 1000px) {
 	section {
 		grid-template-columns: repeat(5, 1fr);

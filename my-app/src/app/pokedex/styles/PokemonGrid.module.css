@@ -4,44 +4,69 @@
 	justify-content: center;
 }
 
-.compareBox {
+.comParent {
 	display: flex;
+	flex-direction: column;
+
+	gap: 5px;
 	width: 1200px;
 	margin: auto;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+.compareBox {
+	margin: auto;
+	display: flex;
+	width: 100%;
+	gap: 4px;
 }
 
 .statBar1 {
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;
 	text-align: center;
 	background-color: #0abd4c;
-	height: 20px;
+	position: relative;
+	border-right: 1px solid white;
+	height: 30;
 	transition: 400ms ease-in-out;
+	width: 100%;
+	padding: 0 10px 0 10px;
 }
+
 .statBar2 {
+	font-weight: bold;
+	color: white;
+	display: flex;
+	justify-content: space-between;
 	text-align: center;
-	background-color: #605f5f;
-	height: 20px;
+	background-color: #4a4c4b;
+	position: relative;
+	border-right: 1px solid white;
+	height: 30;
 	transition: 400ms ease-in-out;
+	width: 100%;
+	padding: 0 10px 0 10px;
 }
 
 .pokeBox {
 	display: flex;
+	gap: 20px;
 }
 
 .previewOne {
-	border: 2px solid black;
 	display: flex;
-	width: 25%;
+
 	flex-direction: column;
 }
 .previewTwo {
-	border: 2px solid black;
 	flex-direction: column;
 	display: flex;
-	width: 25%;
 }
 
 .center {
-	border: 2px solid black;
 	flex-direction: column;
 	width: 100%;
 }
