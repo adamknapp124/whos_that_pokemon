@@ -1,6 +1,30 @@
 .main {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+}
+
+.compareBox {
+	display: flex;
+	width: 1200px;
+	margin: auto;
+}
+
+.statBar1 {
+	text-align: center;
+	background-color: #0abd4c;
+	height: 20px;
+	transition: 400ms ease-in-out;
+}
+.statBar2 {
+	text-align: center;
+	background-color: #605f5f;
+	height: 20px;
+	transition: 400ms ease-in-out;
+}
+
+.pokeBox {
+	display: flex;
 }
 
 .previewOne {
